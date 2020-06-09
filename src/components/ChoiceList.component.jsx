@@ -3,8 +3,6 @@ import ChoiceItem from "./ChoiceItem.component";
 import ColorHex from "./ColorHex.component";
 
 const ChoiceList = ({ choiceArray, deleteChoice, choicesHidden }) => {
-  const [choiceItems, updateChoiceItems] = useState(choiceArray || []);
-
   return !choicesHidden ? (
     <div className="choice-list">
       {choiceArray.map((choice) => (
@@ -14,7 +12,7 @@ const ChoiceList = ({ choiceArray, deleteChoice, choicesHidden }) => {
   ) : (
     <div className="color-hex-reveal">
       {choiceArray.map((choice) => (
-        <ColorHex deleteChoice={() => deleteChoice(choice)} hex={choice.hex}>{choice.text}</ColorHex>
+        <ColorHex deleteChoice={() => deleteChoice(choice)}>{choice.text}</ColorHex>
       ))}
     </div>
   );

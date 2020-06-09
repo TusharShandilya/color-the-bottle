@@ -4,9 +4,15 @@ import ChoiceList from "./components/ChoiceList.component";
 import ChoiceSubmitForm from "./components/ChoiceSubmitForm.component";
 import CustomButton from "./components/CustomButton.component";
 
-const randomHexCode = () => {
-  let randomColor = Math.floor(Math.random() * 16777215).toString(16);
-  return "#" + randomColor;
+
+
+const shuffleArray = (array) => {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+
+  return array;
 };
 
 const App = () => {
@@ -18,21 +24,23 @@ const App = () => {
       ...choiceArray,
       {
         text,
-        hex: randomHexCode(),
         disabled: false,
       },
     ]);
   };
+
+  
 
   const deleteChoice = (valueObject) => {
     let choices = choiceArray;
     choices = choices.filter((choice) => choice !== valueObject);
     updateChoiceArray(choices);
 
-    !choices.length && updateChoicesHidden(false)
+    !choices.length && updateChoicesHidden(false);
   };
 
   const hideChoices = () => {
+    updateChoiceArray(shuffleArray(choiceArray));
     updateChoicesHidden(!choicesHidden);
   };
 
@@ -44,9 +52,13 @@ const App = () => {
         deleteChoice={deleteChoice}
         choicesHidden={choicesHidden}
       />
-      {choiceArray.length ?<CustomButton onClick={hideChoices}>
-        {choicesHidden ? "Show Choices" : "Hide Choices"}
-      </CustomButton> : <p/>}
+      {choiceArray.length ? (
+        <CustomButton onClick={hideChoices}>
+          {choicesHidden ? "Show Choices" : "Hide Choices"}
+        </CustomButton>
+      ) : (
+        <p />
+      )}
     </div>
   );
 };
