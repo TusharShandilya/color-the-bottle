@@ -2,9 +2,9 @@ import React from "react";
 
 const ChoiceItem = ({ choice, deleteChoice }) => {
   return (
-    <div className="choice-item">
+    <div className="choiceItem">
       <span>{choice.text}</span>
-      <i onClick={() => deleteChoice(choice)}>&#10005;</i>
+      <span onClick={() => deleteChoice(choice)}>&#10005;</span>
     </div>
   );
 };

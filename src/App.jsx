@@ -4,7 +4,7 @@ import ChoiceList from "./components/ChoiceList.component";
 import ChoiceSubmitForm from "./components/ChoiceSubmitForm.component";
 import CustomButton from "./components/CustomButton.component";
 
-
+import "./App.scss";
 
 const shuffleArray = (array) => {
   for (let i = array.length - 1; i > 0; i--) {
@@ -29,8 +29,6 @@ const App = () => {
     ]);
   };
 
-  
-
   const deleteChoice = (valueObject) => {
     let choices = choiceArray;
     choices = choices.filter((choice) => choice !== valueObject);
@@ -45,20 +43,22 @@ const App = () => {
   };
 
   return (
-    <div className="App">
+    <div className="app">
       {!choicesHidden && <ChoiceSubmitForm choiceSubmit={choiceSubmit} />}
       <ChoiceList
         choiceArray={choiceArray}
         deleteChoice={deleteChoice}
         choicesHidden={choicesHidden}
       />
-      {choiceArray.length ? (
-        <CustomButton onClick={hideChoices}>
-          {choicesHidden ? "Show Choices" : "Hide Choices"}
-        </CustomButton>
-      ) : (
-        <p />
-      )}
+      <div className="box">
+        {choiceArray.length ? (
+          <CustomButton onClick={hideChoices}>
+            {choicesHidden ? "Show Choices" : "Hide Choices"}
+          </CustomButton>
+        ) : (
+          <p />
+        )}
+      </div>
     </div>
   );
 };

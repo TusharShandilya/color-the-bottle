@@ -1,5 +1,7 @@
-import React, { useState, Fragment } from "react";
+import React, { useState } from "react";
 import CustomButton from "./CustomButton.component";
+
+import styles from "./ChoiceSubmitForm.module.scss";
 
 const ChoiceSubmitForm = ({ choiceSubmit }) => {
   const [choice, updateChoice] = useState("");
@@ -13,7 +15,7 @@ const ChoiceSubmitForm = ({ choiceSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="form">
+    <form onSubmit={handleSubmit} className={styles.form}>
       <label>Enter a possible choice here</label>
       <input
         type="text"
@@ -23,7 +25,7 @@ const ChoiceSubmitForm = ({ choiceSubmit }) => {
         autoFocus
         onChange={(e) => updateChoice(e.target.value)}
       />
-      <CustomButton type="submit" colorType="primary">
+      <CustomButton singleInput type="submit" colorType="primary">
         Add Choice
       </CustomButton>
     </form>

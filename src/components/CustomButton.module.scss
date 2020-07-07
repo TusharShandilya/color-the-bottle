@@ -1,0 +1,20 @@
+.btn {
+  width: 100%;
+  font-size: 1rem;
+  border: 1px solid #505050;
+
+  padding: .5rem;  
+  border-radius: 7px;
+  background: none;
+
+  &:hover {
+    opacity: .8;
+    cursor: pointer;
+  }
+}
+.singleInput {
+  border-radius: 0 7px 7px 0;
+  border-color: #00a850;
+  background: #00a850;
+  color: #fcfcfc;
+}

@@ -1,0 +1,57 @@
+.colorHex {
+  width: 100%;
+  height: 100%;
+
+  border-radius: 7px;
+
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s;
+
+}
+
+.icons {
+  display: inline-block;
+  color: #fcfcfc;
+  margin: 1rem;
+  background: rgba(#000000, 0.15);
+  padding: 0.25rem 0.5rem;
+  // border: 1px rgba(#fcfcfc, .6) solid;
+  border-radius: 3px;
+  span {
+    padding: 0 0.4rem;
+    transition: all 0.2s;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.deleteIcon {
+  &:hover {
+    color: #f34;
+  }
+}
+
+.copyIcon {
+  &:hover {
+    color: #7d4;
+  }
+}
+
+.revealIcon {
+  &:hover {
+    color: #27d;
+  }
+}
+
+.hexValue {
+  background: rgba(#000000, 0.15);
+  padding: .2rem 0.4rem;
+  border: 1px rgba(#fcfcfc, 0.6) solid;
+  border-radius: 3px;
+  color: #fcfcfc;
+  margin: .4rem;
+}
