@@ -1,6 +1,6 @@
 .choiceList {
   width: 80%;
-  height: 60%;
+  height: 62%;
 
   margin-bottom: .5rem;
   padding: .75rem;
@@ -37,4 +37,18 @@
 
 .colorHexRevealLess {
   grid-template-columns: auto;
+}
+
+.modalBody {
+  // background: #f34;
+  
+  font-size: 1.4rem;
+  color: #fcfcfc;
+}
+
+.icon {
+  &:hover {
+    cursor: pointer;
+    opacity: .8;
+  }
 }

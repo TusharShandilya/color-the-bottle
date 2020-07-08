@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 
 import ChoiceList from "./components/ChoiceList.component";
 import ChoiceSubmitForm from "./components/ChoiceSubmitForm.component";
 import CustomButton from "./components/CustomButton.component";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import "./App.scss";
+import Navbar from "./components/Navbar.component";
 
 const shuffleArray = (array) => {
   for (let i = array.length - 1; i > 0; i--) {
@@ -19,11 +22,17 @@ const App = () => {
   const [choiceArray, updateChoiceArray] = useState([]);
   const [choicesHidden, updateChoicesHidden] = useState(false);
 
+  const randomHexCode = () => {
+    let randomColor = Math.floor(Math.random() * 16777215).toString(16);
+    return "#" + randomColor;
+  };
+
   const choiceSubmit = (text) => {
     updateChoiceArray([
       ...choiceArray,
       {
         text,
+        colorHex: randomHexCode(),
         disabled: false,
       },
     ]);
@@ -44,6 +53,7 @@ const App = () => {
 
   return (
     <div className="app">
+      <Navbar />
       {!choicesHidden && <ChoiceSubmitForm choiceSubmit={choiceSubmit} />}
       <ChoiceList
         choiceArray={choiceArray}
@@ -53,7 +63,15 @@ const App = () => {
       <div className="box">
         {choiceArray.length ? (
           <CustomButton onClick={hideChoices}>
-            {choicesHidden ? "Show Choices" : "Hide Choices"}
+            {choicesHidden ? (
+              <Fragment>
+                <FontAwesomeIcon icon={faEye} /> Show Choices{" "}
+              </Fragment>
+            ) : (
+              <Fragment>
+                <FontAwesomeIcon icon={faEyeSlash} />Hide Choices{" "}
+              </Fragment>
+            )}
           </CustomButton>
         ) : (
           <p />

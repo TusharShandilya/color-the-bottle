@@ -1,4 +1,7 @@
 import React from "react";
+
+import styles from "./ColorHex.module.scss";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTrashAlt,
@@ -6,12 +9,16 @@ import {
   faEye,
 } from "@fortawesome/free-solid-svg-icons";
 
-import styles from "./ColorHex.module.scss";
+const ColorHex = ({ children, deleteChoice }) => {
+  const randomHexCode = () => {
+    let randomColor = Math.floor(Math.random() * 16777215).toString(16);
+    return "#" + randomColor;
+  };
 
-const ColorHex = ({ choice, deleteChoice, revealChoice }) => {
+  const colorHexValue = randomHexCode();
 
   const copyHex = () => {
-    var copyText = document.getElementById(`hexCodeInput-${choice.colorHex}`);
+    var copyText = document.getElementById(`hexCodeInput-${colorHexValue}`);
     
     copyText.select();
     copyText.setSelectionRange(0, 99999); /*For mobile devices*/
@@ -19,10 +26,14 @@ const ColorHex = ({ choice, deleteChoice, revealChoice }) => {
     document.execCommand("copy");
   };
 
+  const revealChoice = () => {
+    console.log("Your choice: ", children);
+  };
+
   return (
     <div
       className={styles.colorHex}
-      style={{ background: choice.colorHex }}
+      style={{ background: colorHexValue }}
     >
       <div className={styles.icons}>
         <span className={styles.copyIcon} onClick={copyHex}>
@@ -35,7 +46,7 @@ const ColorHex = ({ choice, deleteChoice, revealChoice }) => {
           <FontAwesomeIcon icon={faTrashAlt} />
         </span>
       </div>
-      <input className={styles.hexValue} value={choice.colorHex} id={`hexCodeInput-${choice.colorHex}`}/>
+      <input className={styles.hexValue} value={colorHexValue} id={`hexCodeInput-${colorHexValue}`}/>
     </div>
   );
 };

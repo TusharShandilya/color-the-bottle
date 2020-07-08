@@ -6,10 +6,15 @@
   padding: .5rem;  
   border-radius: 7px;
   background: none;
+  color: #00a850;
+  border-color: #00a850;
+  transition: all .2s;
 
   &:hover {
     opacity: .8;
     cursor: pointer;
+    background: #00a850;
+    color: #fcfcfc;
   }
 }
 .singleInput {

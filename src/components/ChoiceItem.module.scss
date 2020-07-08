@@ -1,0 +1,26 @@
+.choiceItem {
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+}
+
+.choiceIcon {
+  margin: .2rem .5rem .2rem .5rem;
+  font-size: 1rem;
+  &:hover {
+    color: #f34;
+    cursor: pointer;
+  }
+
+}
+
+.choiceText {
+  &::before {
+    content: "";
+    border-left: 1px #b0b0b0 dotted;
+    margin-right: .5rem;
+    
+  }
+  color: var(--color-text);
+  font-size: 1.4rem;
+}

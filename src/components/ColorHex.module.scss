@@ -21,7 +21,7 @@
   // border: 1px rgba(#fcfcfc, .6) solid;
   border-radius: 3px;
   span {
-    padding: 0 0.4rem;
+    padding: 0 0.75rem;
     transition: all 0.2s;
     &:hover {
       cursor: pointer;
@@ -48,10 +48,14 @@
 }
 
 .hexValue {
-  background: rgba(#000000, 0.15);
+  background: rgba(#000000, 0.25);
   padding: .2rem 0.4rem;
   border: 1px rgba(#fcfcfc, 0.6) solid;
   border-radius: 3px;
-  color: #fcfcfc;
+  color: #fbfbfb;
   margin: .4rem;
+
+  font-size: 1.2rem;
+  text-align: center;
+  width: 6.5rem;
 }
