@@ -6,15 +6,21 @@ import styles from "./ChoiceList.module.scss";
 import Modal from "./Modal.component";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimesCircle } from "@fortawesome/free-solid-svg-icons";
+import { faTimes, faRedo } from "@fortawesome/free-solid-svg-icons";
 
-const ChoiceList = ({ choiceArray, deleteChoice, choicesHidden }) => {
+const ChoiceList = ({
+  choiceArray,
+  deleteChoice,
+  choicesHidden,
+  lockChoice,
+  randomizeChoices,
+}) => {
   const [showModal, setShowModal] = useState(false);
   const [userChoice, setUserChoice] = useState("");
 
   const revealChoice = (choice) => {
-    setShowModal(!showModal)
-    setUserChoice(choice.text)
+    setShowModal(!showModal);
+    setUserChoice(choice.text);
   };
 
   return !choicesHidden ? (
@@ -30,15 +36,23 @@ const ChoiceList = ({ choiceArray, deleteChoice, choicesHidden }) => {
           head={
             <Fragment>
               You choose...
-              <span className={styles.icon} onClick={() => setShowModal(false)}>
-                <FontAwesomeIcon icon={faTimesCircle} />
+              <span
+                className={styles.icon}
+                onClick={() => setShowModal(false)}
+              >
+                <FontAwesomeIcon icon={faTimes} />
               </span>
             </Fragment>
           }
           body={<div className={styles.modalBody}>{userChoice}</div>}
         />
       )}
-      <h2>Click to choose!</h2>
+      <span className={styles.choiceHeading}>
+        <h2>Pick a color!</h2>
+        <span onClick={randomizeChoices} className={styles.redoIcon}>
+          <FontAwesomeIcon icon={faRedo} />
+        </span>
+      </span>
       <div className={`${styles.choiceList} ${styles.colorHexList}`}>
         <div
           className={`${styles.colorHexReveal} ${
@@ -46,7 +60,12 @@ const ChoiceList = ({ choiceArray, deleteChoice, choicesHidden }) => {
           }`}
         >
           {choiceArray.map((choice) => (
-            <ColorHex choice={choice} revealChoice={() => revealChoice(choice)} deleteChoice={() => deleteChoice(choice)}/>
+            <ColorHex
+              choice={choice}
+              revealChoice={() => revealChoice(choice)}
+              deleteChoice={() => deleteChoice(choice)}
+              lockChoice={() => lockChoice(choice)}
+            />
           ))}
         </div>
       </div>

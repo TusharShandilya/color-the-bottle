@@ -1,10 +1,17 @@
-import React from 'react'
+import React from "react";
 
 import styles from "./CustomButton.module.scss";
 
-const CustomButton = ({children, onClick, type, colorType, singleInput}) => {
-  return <button onClick={onClick} type={type} className={`${styles.btn} ${singleInput && styles.singleInput}`}>{children}</button>
-}
-
+const CustomButton = ({ children, onClick, type, pop, singleInput }) => {
+  return (
+    <button
+      onClick={onClick}
+      type={type}
+      className={`${styles.btn} ${pop && styles.popin} ${singleInput && styles.singleInput}`}
+    >
+      {children}
+    </button>
+  );
+};
 
 export default CustomButton;

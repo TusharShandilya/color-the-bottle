@@ -23,8 +23,12 @@ const App = () => {
   const [choicesHidden, updateChoicesHidden] = useState(false);
 
   const randomHexCode = () => {
-    let randomColor = Math.floor(Math.random() * 16777215).toString(16);
-    return "#" + randomColor;
+    // let randomColor = Math.floor(Math.random() * 16777215).toString(16);
+    let randomColor = '#' + ("000000" + Math.random().toString(16).slice(2, 8).toUpperCase()).slice(-6);
+    console.log(randomColor);
+      
+    return randomColor;
+    
   };
 
   const choiceSubmit = (text) => {
@@ -33,9 +37,26 @@ const App = () => {
       {
         text,
         colorHex: randomHexCode(),
-        disabled: false,
+        changeAllowed: true,
       },
     ]);
+  };
+
+  const randomizeChoices = () => {
+    let array = choiceArray;
+
+    array = array.map((choice) => {
+      if (choice.changeAllowed){
+        return {
+          ...choice,
+          colorHex: randomHexCode(),
+        };
+    } else {
+      return choice;
+    }
+  });
+
+    updateChoiceArray(array);
   };
 
   const deleteChoice = (valueObject) => {
@@ -44,6 +65,17 @@ const App = () => {
     updateChoiceArray(choices);
 
     !choices.length && updateChoicesHidden(false);
+  };
+
+  const lockChoice = (valueObject) => {
+    let choices = choiceArray;
+    choices = choices.map((choice) => {
+      if (choice === valueObject) {
+        choice.changeAllowed = !choice.changeAllowed;
+      }
+      return choice;
+    });
+    updateChoiceArray(choices);
   };
 
   const hideChoices = () => {
@@ -59,17 +91,20 @@ const App = () => {
         choiceArray={choiceArray}
         deleteChoice={deleteChoice}
         choicesHidden={choicesHidden}
+        lockChoice={lockChoice}
+        randomizeChoices={randomizeChoices}
       />
       <div className="box">
         {choiceArray.length ? (
-          <CustomButton onClick={hideChoices}>
+          <CustomButton pop onClick={hideChoices}>
             {choicesHidden ? (
               <Fragment>
                 <FontAwesomeIcon icon={faEye} /> Show Choices{" "}
               </Fragment>
             ) : (
               <Fragment>
-                <FontAwesomeIcon icon={faEyeSlash} />Hide Choices{" "}
+                <FontAwesomeIcon icon={faEyeSlash} />
+                Hide Choices{" "}
               </Fragment>
             )}
           </CustomButton>

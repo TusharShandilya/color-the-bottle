@@ -43,12 +43,33 @@
   // background: #f34;
   
   font-size: 1.4rem;
-  color: #fcfcfc;
+  color: var(--color-text);
 }
 
 .icon {
   &:hover {
     cursor: pointer;
     opacity: .8;
+  }
+}
+
+
+.choiceHeading{
+  position: relative;
+  width: 80%;
+}
+.redoIcon {
+  font-size: 1.4rem;
+  position: absolute;
+  top: 50%;
+  right: .5rem;
+  color: #ff9633;
+  transition: all .4s;
+
+  transform: translateY(-50%);
+
+  &:hover {
+    cursor: pointer;
+    transform: translateY(-50%) rotateZ(180deg);
   }
 }

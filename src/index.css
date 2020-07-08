@@ -23,13 +23,15 @@ code {
 
 html {
   --color-background: #fcfcfc;
+  --color-background-alt: #f1f1f1;
   --color-text: #404040;
   --color-text-alt: #fcfcfc;
 }
 
 
 html[theme="dark"] {
-  --color-background: #123;
+  --color-background: #111;
+  --color-background-alt: #222;
   --color-text: #fcfcfc;
   --color-text-alt: #D0FEFE;
 }
