@@ -16,7 +16,7 @@ const ColorHex = ({ choice, deleteChoice, revealChoice, lockChoice }) => {
 
   const copyHex = () => {
     setTooltip(true);
-    setTimeout(() => setTooltip(false), 2000);
+    setTimeout(() => setTooltip(false), 1000);
     let copyText = document.getElementById(`hexCodeInput-${choice.colorHex}`);
 
     copyText.select();
@@ -30,7 +30,7 @@ const ColorHex = ({ choice, deleteChoice, revealChoice, lockChoice }) => {
     <div className={styles.colorHex} style={{ background: choice.colorHex }}>
       <div className={styles.icons}>
         <span className={styles.copyIcon} onClick={copyHex}>
-          {showTooltip && <Tooltip direction="top">Hex Copied!</Tooltip>}
+          {showTooltip && <Tooltip direction="bottom">Hex Copied!</Tooltip>}
           <FontAwesomeIcon icon={faCopy} />
         </span>
         <span className={styles.revealIcon} onClick={revealChoice}>
