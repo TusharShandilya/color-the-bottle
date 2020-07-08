@@ -22,15 +22,15 @@ const ChoiceList = ({
     setShowModal(!showModal);
     setUserChoice(choice.text);
   };
+  // !choicesHidden ? (
+  //   <div className={styles.choiceList}>
+  //     {choiceArray.map((choice) => (
+  //       <ChoiceItem deleteChoice={deleteChoice} choice={choice} />
+  //     ))}
+  //   </div>
+  // ) : (
 
-  return !choicesHidden ? (
-    <div className={styles.choiceList}>
-      {choiceArray.map((choice) => (
-        <ChoiceItem deleteChoice={deleteChoice} choice={choice} />
-      ))}
-    </div>
-  ) : (
-    <Fragment>
+  return <Fragment>
       {showModal && (
         <Modal
           head={
@@ -48,7 +48,7 @@ const ChoiceList = ({
         />
       )}
       <span className={styles.choiceHeading}>
-        <h2>Pick a color!</h2>
+        <h2>&nbsp;</h2>
         <span onClick={randomizeChoices} className={styles.redoIcon}>
           <FontAwesomeIcon icon={faRedo} />
         </span>
@@ -70,7 +70,7 @@ const ChoiceList = ({
         </div>
       </div>
     </Fragment>
-  );
+      // );
 };
 
 export default ChoiceList;

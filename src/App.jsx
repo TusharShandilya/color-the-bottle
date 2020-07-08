@@ -2,10 +2,10 @@ import React, { useState, Fragment } from "react";
 
 import ChoiceList from "./components/ChoiceList.component";
 import ChoiceSubmitForm from "./components/ChoiceSubmitForm.component";
-import CustomButton from "./components/CustomButton.component";
+// import CustomButton from "./components/CustomButton.component";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import "./App.scss";
 import Navbar from "./components/Navbar.component";
 
@@ -94,7 +94,7 @@ const App = () => {
         lockChoice={lockChoice}
         randomizeChoices={randomizeChoices}
       />
-      <div className="box">
+      {/* <div className="box">
         {choiceArray.length ? (
           <CustomButton pop onClick={hideChoices}>
             {choicesHidden ? (
@@ -111,7 +111,7 @@ const App = () => {
         ) : (
           <p />
         )}
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -13,7 +13,10 @@
 }
 
 .icons {
-  display: inline-block;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   color: #fcfcfc;
   margin: 1rem;
   background: rgba(#000000, 0.15);
@@ -27,6 +30,17 @@
       cursor: pointer;
     }
   }
+}
+
+@media screen and (max-width: 470px) {
+  .icons {
+    margin: .5rem .25rem;
+
+    span {
+      margin: 1rem 0;
+    }
+  }
+
 }
 
 .deleteIcon {

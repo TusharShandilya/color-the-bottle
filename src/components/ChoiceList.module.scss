@@ -18,7 +18,7 @@
 }
 
 .colorHexList {
-  height: 70%;
+  height: 65%;
 }
 
 .colorHexReveal {
@@ -37,6 +37,12 @@
 
 .colorHexRevealLess {
   grid-template-columns: auto;
+}
+
+@media screen and (max-width: 470px) {
+  .colorHexReveal {
+    grid-template-columns: auto;
+  }
 }
 
 .modalBody {
