@@ -1,11 +1,11 @@
-import React, { useState, Fragment } from "react";
+import React, { useState } from "react";
 
 import ChoiceList from "./components/ChoiceList.component";
 import ChoiceSubmitForm from "./components/ChoiceSubmitForm.component";
-// import CustomButton from "./components/CustomButton.component";
+import CustomButton from "./components/CustomButton.component";
 
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDice } from "@fortawesome/free-solid-svg-icons";
 import "./App.scss";
 import Navbar from "./components/Navbar.component";
 
@@ -56,7 +56,7 @@ const App = () => {
     }
   });
 
-    updateChoiceArray(array);
+    updateChoiceArray(shuffleArray(array));
   };
 
   const deleteChoice = (valueObject) => {
@@ -78,10 +78,10 @@ const App = () => {
     updateChoiceArray(choices);
   };
 
-  const hideChoices = () => {
-    updateChoiceArray(shuffleArray(choiceArray));
-    updateChoicesHidden(!choicesHidden);
-  };
+  // const hideChoices = () => {
+  //   updateChoiceArray(shuffleArray(choiceArray));
+  //   updateChoicesHidden(!choicesHidden);
+  // };
 
   return (
     <div className="app">
@@ -94,24 +94,17 @@ const App = () => {
         lockChoice={lockChoice}
         randomizeChoices={randomizeChoices}
       />
-      {/* <div className="box">
+      <div className="box">
         {choiceArray.length ? (
-          <CustomButton pop onClick={hideChoices}>
-            {choicesHidden ? (
-              <Fragment>
-                <FontAwesomeIcon icon={faEye} /> Show Choices{" "}
-              </Fragment>
-            ) : (
-              <Fragment>
-                <FontAwesomeIcon icon={faEyeSlash} />
-                Hide Choices{" "}
-              </Fragment>
-            )}
+          <CustomButton pop onClick={randomizeChoices}>
+             
+                <FontAwesomeIcon icon={faDice} /> Shuffle{" "}
+           
           </CustomButton>
         ) : (
           <p />
         )}
-      </div> */}
+      </div>
     </div>
   );
 };

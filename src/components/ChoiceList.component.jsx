@@ -1,19 +1,16 @@
 import React, { Fragment, useState } from "react";
 
-import ChoiceItem from "./ChoiceItem.component";
 import ColorHex from "./ColorHex.component";
 import styles from "./ChoiceList.module.scss";
 import Modal from "./Modal.component";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimes, faRedo } from "@fortawesome/free-solid-svg-icons";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 const ChoiceList = ({
   choiceArray,
   deleteChoice,
-  choicesHidden,
-  lockChoice,
-  randomizeChoices,
+  lockChoice
 }) => {
   const [showModal, setShowModal] = useState(false);
   const [userChoice, setUserChoice] = useState("");
@@ -22,13 +19,6 @@ const ChoiceList = ({
     setShowModal(!showModal);
     setUserChoice(choice.text);
   };
-  // !choicesHidden ? (
-  //   <div className={styles.choiceList}>
-  //     {choiceArray.map((choice) => (
-  //       <ChoiceItem deleteChoice={deleteChoice} choice={choice} />
-  //     ))}
-  //   </div>
-  // ) : (
 
   return <Fragment>
       {showModal && (
@@ -47,12 +37,6 @@ const ChoiceList = ({
           body={<div className={styles.modalBody}>{userChoice}</div>}
         />
       )}
-      <span className={styles.choiceHeading}>
-        <h2>&nbsp;</h2>
-        <span onClick={randomizeChoices} className={styles.redoIcon}>
-          <FontAwesomeIcon icon={faRedo} />
-        </span>
-      </span>
       <div className={`${styles.choiceList} ${styles.colorHexList}`}>
         <div
           className={`${styles.colorHexReveal} ${
@@ -70,7 +54,6 @@ const ChoiceList = ({
         </div>
       </div>
     </Fragment>
-      // );
 };
 
 export default ChoiceList;

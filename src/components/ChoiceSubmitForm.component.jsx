@@ -16,7 +16,7 @@ const ChoiceSubmitForm = ({ choiceSubmit }) => {
 
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
-      <label>Enter a possible choice here</label>
+      <label>Enter a value to generate a color</label>
       <input
         type="text"
         name=""
@@ -26,7 +26,7 @@ const ChoiceSubmitForm = ({ choiceSubmit }) => {
         onChange={(e) => updateChoice(e.target.value)}
       />
       <CustomButton singleInput type="submit" colorType="primary">
-        Add Choice
+        Add
       </CustomButton>
     </form>
   );

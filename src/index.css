@@ -11,7 +11,12 @@
 body,html,* {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+
+  -webkit-transition: all .2s;
+
+  -o-transition: all .2s;
 
   transition: all .2s;  
 }

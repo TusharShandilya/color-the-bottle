@@ -25,29 +25,33 @@
   width: 100%;
   height: 100%;
   
+  display: -ms-grid;
+  
   display: grid;
+  -ms-grid-columns: 1fr .3rem 1fr .3rem 1fr;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: .3rem;
   justify-items: center;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   
   margin: auto;
-  // padding: .5rem;
 }
 
 .colorHexRevealLess {
+  -ms-grid-columns: auto;
   grid-template-columns: auto;
 }
 
 @media screen and (max-width: 470px) {
   .colorHexReveal {
+    -ms-grid-columns: auto;
     grid-template-columns: auto;
   }
 }
 
-.modalBody {
-  // background: #f34;
-  
+.modalBody {  
   font-size: 1.4rem;
   color: var(--color-text);
 }
@@ -64,18 +68,26 @@
   position: relative;
   width: 80%;
 }
-.redoIcon {
-  font-size: 1.4rem;
-  position: absolute;
-  top: 50%;
-  right: .5rem;
-  color: #ff9633;
-  transition: all .4s;
+// .redoIcon {
+//   font-size: 1.4rem;
+//   position: absolute;
+//   top: 50%;
+//   right: .5rem;
+//   color: #ff9633;
+//   -webkit-transition: all .4s;
+//   -o-transition: all .4s;
+//   transition: all .4s;
 
-  transform: translateY(-50%);
+//   -webkit-transform: translateY(-50%);
 
-  &:hover {
-    cursor: pointer;
-    transform: translateY(-50%) rotateZ(180deg);
-  }
-}
+//       -ms-transform: translateY(-50%);
+
+//           transform: translateY(-50%);
+
+//   &:hover {
+//     cursor: pointer;
+//     -webkit-transform: translateY(-50%) rotateZ(180deg);
+//         -ms-transform: translateY(-50%) rotate(180deg);
+//             transform: translateY(-50%) rotateZ(180deg);
+//   }
+// }
