@@ -17,6 +17,13 @@
   }
 }
 
+
+@media screen and (max-width: 420px) {
+  .choiceList {
+    width: 95%;
+  } 
+}
+
 .colorHexList {
   height: 65%;
 }

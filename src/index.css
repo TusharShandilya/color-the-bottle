@@ -13,12 +13,6 @@ body,html,* {
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-
-  -webkit-transition: all .2s;
-
-  -o-transition: all .2s;
-
-  transition: all .2s;  
 }
 
 code {
@@ -44,4 +38,9 @@ html[theme="dark"] {
 html, body {
   background: var(--color-background);
   color: var(--color-text);
+  -webkit-transition: all .2s;
+
+  -o-transition: all .2s;
+
+  transition: all .2s;  
 }

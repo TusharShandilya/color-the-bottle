@@ -25,11 +25,7 @@ const ColorHex = ({ children, deleteChoice }) => {
 
     document.execCommand("copy");
   };
-
-  const revealChoice = () => {
-    console.log("Your choice: ", children);
-  };
-
+  
   return (
     <div
       className={styles.colorHex}

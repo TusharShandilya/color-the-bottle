@@ -9,14 +9,14 @@ import { faDice } from "@fortawesome/free-solid-svg-icons";
 import "./App.scss";
 import Navbar from "./components/Navbar.component";
 
-const shuffleArray = (array) => {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
+// const shuffleArray = (array) => {
+//   for (let i = array.length - 1; i > 0; i--) {
+//     const j = Math.floor(Math.random() * (i + 1));
+//     [array[i], array[j]] = [array[j], array[i]];
+//   }
 
-  return array;
-};
+//   return array;
+// };
 
 const App = () => {
   const [choiceArray, updateChoiceArray] = useState([]);
@@ -33,12 +33,12 @@ const App = () => {
 
   const choiceSubmit = (text) => {
     updateChoiceArray([
-      ...choiceArray,
       {
         text,
         colorHex: randomHexCode(),
         changeAllowed: true,
       },
+      ...choiceArray
     ]);
   };
 
@@ -84,6 +84,23 @@ const App = () => {
   //   updateChoicesHidden(!choicesHidden);
   // };
 
+  const handleHexChange = (colorChoice, hex) => {
+    // let array = choiceArray;
+
+    // array = array.map(choice => {
+    //   if(choice === colorChoice) {
+    //     return {
+    //       ...choice,
+    //       colorHex: hex
+    //     }
+    //   }
+
+    //   return choice;
+    // })
+
+    // updateChoiceArray(array)
+  }
+
   return (
     <div className="app">
       <Navbar />
@@ -93,7 +110,7 @@ const App = () => {
         deleteChoice={deleteChoice}
         choicesHidden={choicesHidden}
         lockChoice={lockChoice}
-        randomizeChoices={randomizeChoices}
+        handleHexChange={handleHexChange}
       />
       <div className="box">
         {choiceArray.length ? (

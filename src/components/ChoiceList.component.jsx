@@ -10,7 +10,8 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons";
 const ChoiceList = ({
   choiceArray,
   deleteChoice,
-  lockChoice
+  lockChoice,
+  handleHexChange,
 }) => {
   const [showModal, setShowModal] = useState(false);
   const [userChoice, setUserChoice] = useState("");
@@ -43,12 +44,14 @@ const ChoiceList = ({
             choiceArray.length <= 3 && styles.colorHexRevealLess
           }`}
         >
-          {choiceArray.map((choice) => (
+          {choiceArray.map((choice,idx) => (
             <ColorHex
+              key={`choiceHex-${choice.ColorHex}-${idx}`}
               choice={choice}
               revealChoice={() => revealChoice(choice)}
               deleteChoice={() => deleteChoice(choice)}
               lockChoice={() => lockChoice(choice)}
+              handleHexChange={(hex) => handleHexChange(choice, hex)}
             />
           ))}
         </div>

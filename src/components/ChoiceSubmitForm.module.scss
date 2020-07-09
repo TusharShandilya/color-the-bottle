@@ -1,5 +1,5 @@
 .form {
-  width: 80vw;
+  width: 80%;
   display: -ms-grid;
   display: grid;
   margin-bottom: .75rem;
@@ -34,8 +34,10 @@
   }
 }
 
-@media screen and (max-width: 360px){
+@media screen and (max-width: 420px){
   .form {
+    width: 95%;
+
     label {
       font-size: 1.2rem;
     }

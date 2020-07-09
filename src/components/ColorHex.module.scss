@@ -23,7 +23,6 @@
   -webkit-transition: all 0.2s;
   -o-transition: all 0.2s;
   transition: all 0.2s;
-
 }
 
 .icons {
@@ -95,4 +94,16 @@
   font-size: 1.2rem;
   text-align: center;
   width: 6.5rem;
+}
+
+@keyframes popIn {
+  0% {
+    transfrom: scale(.3);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
