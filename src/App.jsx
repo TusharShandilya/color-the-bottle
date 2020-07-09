@@ -56,7 +56,8 @@ const App = () => {
     }
   });
 
-    updateChoiceArray(shuffleArray(array));
+    // updateChoiceArray(shuffleArray(array));
+    updateChoiceArray(array);
   };
 
   const deleteChoice = (valueObject) => {
@@ -97,9 +98,7 @@ const App = () => {
       <div className="box">
         {choiceArray.length ? (
           <CustomButton pop onClick={randomizeChoices}>
-             
                 <FontAwesomeIcon icon={faDice} /> Shuffle{" "}
-           
           </CustomButton>
         ) : (
           <p />
